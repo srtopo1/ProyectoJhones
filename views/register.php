@@ -17,14 +17,11 @@ if (isset($_POST['submit'])) {
 	if (preg_match_all('/[0-9]/', $_POST['tel']) != strlen($_POST['tel']) || strlen($_POST['tel']) != 9) {
 		$check_TEL = 'Dato erroneo. El telefono tiene 9 digitos.';
 	}
-
-	if (preg_match_all('/[a-z]/i', $_POST['correo']) != strlen($_POST['correo'])) {
-		$check_Secondname = 'Dato erroneos. El apellido tiene que tener solo letras!!';
+	if (strlen($_POST['contraseña']) < 8 || !preg_match('/[A-Z]/', $_POST['contraseña']) || !preg_match('/[a-z]/', $_POST['contraseña']) || !preg_match('/[0-9]/', $_POST['contraseña']) || !preg_match('/[!"@?#$%&]/', $_POST['contraseña'])) {
+		$check_PASSWORD = 'Contraseña erronea. ejemplo: 123ASD@asd';
 	}
 
-	if (preg_match_all('/[a-z]/i', $_POST['contraseña']) != strlen($_POST['contraseña'])) {
-		$check_Secondname = 'Dato erroneos. El apellido tiene que tener solo letras!!';
-	}
+	
 }
 
 //
